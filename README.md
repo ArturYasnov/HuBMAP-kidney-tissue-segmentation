@@ -1,1 +1,14 @@
-# HuBMAP-medical-images-segmentation
+## Descripton
+It is my solution to Kaggle Hacking the Kidney competition. I used U-net model with pretrained on Imagenet resnext50 backbone.
+
+## Dataset
+Model trained on a HuBMAP - Hacking the Kidney Dataset from Kaggle. 
+
+## Mask on image sample
+![alt text](https://www.kaggleusercontent.com/kf/48229620/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..zgRB3L1-zitBSYV-lzCr1A.3eH1GWCF3kzKny4W0FodOqHEMPpRKf2rg9HeqoigyGSrfgXeph4V5VW43himNLeqjU8vG60cW7jk-YYI6tOR28iczq0zTZSc_SPF_hmRB3rK17VSzywvNii83_cusp_UWo1hrDBk2KX3ndCX6VZgNZG_FXnKi-PS4ZXmyjmsrm-nKsK-JTyuwgj0xCrH35BoYfDZTmVNERrZBwkgL7GFexc_8QQTdEArgKFSRN_3K6lfgnto0UbsDHoO37W0HbLfpcros2nQkTFNsbpQrC1M6-U8FGf5ckixUatM-1_DmhwyCJ1a_rJP56-PMIJ4OHgfLYy41sawdaJ_PMZHHDiW3LI27nVDldMQRwStRYgyal14oi0hCjHQdlFddDVT6oWPe9vFvXLUhLw6cxeLmlBe8depUvVCqiymRDHzNlE9O2Pj85YCE5EBPG39WOY9sck_JK80aIcHIre8mcoisvRqtWdc_6MDglU6BoQgWfSpq6RFiJ6TQAw0GJncN5AqcVfktcmd2AZZyHOSCJ36NJfowV_Ozhp4OsCS9hs8B5kfEY-7u-ur5CI9FYGiS8xDN-quImCSwubwRWr5QPc1KtQiXbcdxwItH-eojK9sPLY1sNDIRFUFMpub6FWv0YNvmDV8YqRnua-ksUdSam70HwAUy9JbP_Vn-HkY-zq7rk5hLik.pbnIMhFmUn1BNqVjNFmmUQ/__results___files/__results___32_0.png)
+
+
+
+
+
+
