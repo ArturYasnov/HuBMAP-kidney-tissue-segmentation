@@ -1,36 +1,17 @@
 import os
-import gc
-import json
 import random
-import numpy as np
-import pandas as pd
-import tifffile as tiff
-import cv2 as cv
-import albumentations as albu
 from os import path
 
-import pathlib, sys, os, random, time
-import numba, gc, cv2
-import rasterio
-from rasterio.windows import Window
-
-from tqdm.notebook import tqdm
-from PIL import Image
-from sklearn.model_selection import train_test_split
-
-import torch
-import torch.nn as nn
-import torch.utils.data as D
-from torch.utils.data import DataLoader, Dataset
-import torch.nn.functional as F
+import cv2 as cv
+import numpy as np
 import segmentation_models_pytorch as smp
+import torch
+import torch.utils.data as D
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
+from sklearn.model_selection import train_test_split
+from torch.utils.data import Dataset
 
-from albumentations import (
-    Compose, OneOf, Normalize, HorizontalFlip, VerticalFlip, RandomRotate90, Transpose, ShiftScaleRotate, IAAAdditiveGaussianNoise, IAAPerspective,
-    CLAHE, RandomBrightness, RandomGamma, IAASharpen, Blur, MotionBlur, RandomContrast, HueSaturationValue, VerticalFlip,
-    RandomRotate90, OneOf, Resize, Rotate, RandomBrightnessContrast, Lambda
-    )
-from albumentations.pytorch import ToTensorV2, ToTensor
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
@@ -114,9 +95,9 @@ def rle_decode(mask_rle, shape=(256, 256)):
 # ValTransforms
 # ====================================================
 def ValTransforms():
-    return Compose([
-        Resize(256,256),
-        Normalize(
+    return A.Compose([
+        A.Resize(256,256),
+        A.Normalize(
             mean=[0.485, 0.456, 0.406],
             std=[0.229, 0.224, 0.225],
         ),
@@ -124,7 +105,7 @@ def ValTransforms():
     ])
 
 
-model = smp.Unet(encoder_name='se_resnext50_32x4d', 
+model = smp.DeepLabV3Plus(encoder_name='se_resnext50_32x4d', 
                  encoder_weights='imagenet', 
                  activation='sigmoid')
 
@@ -171,6 +152,6 @@ for i, filename in enumerate(p.glob('*.tiff')):
 output = pd.DataFrame.from_dict(subm, orient='index')
 output.to_csv(path.realpath(path.curdir)+'/Data/Output/masks.csv', index=False)
 
-# image = rle_decode(submission.loc[0].predicted, shape=(25784, 34937))
-# visualize_tensor(image=image)
+image = rle_decode(submission.loc[0].predicted, shape=(25784, 34937))
+visualize_tensor(image=image)
 
