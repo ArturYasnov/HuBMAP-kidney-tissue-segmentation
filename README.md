@@ -1,5 +1,5 @@
 ## Descripton
-It is my solution to Kaggle Hacking the Kidney competition. I used U-net model with pretrained on Imagenet resnext50 backbone.
+It is my solution to Kaggle Hacking the Kidney competition. It uses DeepLabV3+ model with pretrained on Imagenet se_resnext50_32x4d backbone.
 
 ## Dataset
 Model trained on a HuBMAP - Hacking the Kidney Dataset from Kaggle. 
